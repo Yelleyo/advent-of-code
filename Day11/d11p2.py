@@ -1,4 +1,4 @@
-input_file = 'test_input.txt'
+input_file = 'input.txt'
 
 lines = []
 
@@ -30,7 +30,7 @@ for line_num, line in enumerate(lines):
         if char == '#':
             positions.append([line_num, char_num])
 
-print(positions)
+# print(positions)
 
 distances = []
 for i in range(len(positions)):
@@ -40,7 +40,7 @@ for i in range(len(positions)):
         total_distance = vertical_distance + horizontal_distance
         distances.append(total_distance)
 
-print("Distances between all points:", distances)
+#print("Distances between all points:", distances)
 
 total = sum(distances)
 print(total)
@@ -53,17 +53,21 @@ vert_added = 0
 for l in lin:
     for i in range(len(positions)):
         for j in range(i+1, len(positions)):
-            if positions[i][0] < l and positions[j][0] > l:
-                vert_added += 100
+            if positions[i][0] < l < positions[j][0]:
+                vert_added += 999999
+                #print(f'l: {l}, i: {i}, j: {j}')
+print('vert added: ', vert_added)
 
 hor_added = 0
 for c in col:
     for i in range(len(positions)):
         for j in range(i+1, len(positions)):
-            if positions[i][1] < c and positions[j][0] > c:
-                hor_added += 100
+            if (positions[i][1] < c < positions[j][1]) or (positions[i][1] > c > positions[j][1]):
+                hor_added += 999999
+                #print(f'c: {c}, i: {i}, j: {j}')
+print('hor_added: ', hor_added)
 
 total_added = total + vert_added + hor_added
-print(total_added)
+print('answer: ', total_added)
 
 # close but no sigar!
