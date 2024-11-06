@@ -56,9 +56,4 @@ for value in values[1:]:
 
 print(lcm_value)
 
-# this is not working, not working.
-# Maybe first make an array for the the first start value, and then
-# check if those matches with the second, if good, check with third..
-# 2 methods: 
-# check make the steps together. 
-# or amount of steps between two answers is a fixed number, can multiply this by each other.                                
+                               
