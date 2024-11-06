@@ -1,4 +1,4 @@
-#  Day 1 : 
+#  Day 1 :
 # for each line of input get first and last digit, glue them together. 
 # then add them all up.
 
@@ -26,4 +26,14 @@ with open(input, 'r') as file:
 
 print(calibration)
 
+# the "pro" version: from https://www.youtube.com/watch?v=y-kOUFrHaKs
+# but this one is not correct yet
+
+total = 0
+
+for x in open(input):
+    digits = [ch for ch in input if ch.isdigit()]
+    total += int(digits[0] + digits[-1])
+
+print(f"This is the second total: {total}")
 

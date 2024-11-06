@@ -15,7 +15,7 @@ for i, line in enumerate(lines):
         break
 
 print('Start position: ', start_position)
-
+start_position = 4
 # Initialize the positions dictionary with the current position
 positions = {'previous': start_position, 'current': None}
 
