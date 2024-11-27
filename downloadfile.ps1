@@ -12,13 +12,13 @@ $year = 2023
 # URL to fetch the input data
 $url = "https://adventofcode.com/$year/day/$Day/input"
 
-# Define the output directory and file
+# Define the output directory and files
 $outputDirectory = "./$year/Day$Day"
 $outputFile = "$outputDirectory/input.txt"
 $testFile1 = "$outputDirectory/test1.txt"
 $testFile2 = "$outputDirectory/test2.txt"
-$part1 = "$outputDirectory/part1_day$Day.py"
-$part2 = "$outputDirectory/part2_day$Day.py"
+$part1 = "{0}/day{1}_part1.py" -f $outputDirectory, $Day
+$part2 = "{0}/day{1}_part2.py" -f $outputDirectory, $Day
 
 # Create the directory if it doesn't exist
 if (-not (Test-Path -Path $outputDirectory)) {
@@ -35,6 +35,6 @@ try {
     New-Item -ItemType File -Path $part2 -Force | Out-Null
     Write-Output "Created files"
 } catch {
-    Write-Output "Failed to download input data: $_"
+    Write-Output "Failed to download and/or create data: $_"
     exit 1
 }
