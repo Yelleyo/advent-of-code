@@ -20,6 +20,23 @@ $testFile2 = "$outputDirectory/test2.txt"
 $part1 = "{0}/day{1}_part1.py" -f $outputDirectory, $Day
 $part2 = "{0}/day{1}_part2.py" -f $outputDirectory, $Day
 
+$template = @"
+# Advent of Code $year - Day $Day
+# Author: Yelleyo
+
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+def main():
+    with open('test1.txt', 'r') as file:
+        lines = file.read().splitlines()
+
+
+if __name__ == '__main__':
+    main()
+"@
+
 # Create the directory if it doesn't exist
 if (-not (Test-Path -Path $outputDirectory)) {
     New-Item -ItemType Directory -Path $outputDirectory
@@ -33,6 +50,13 @@ try {
     New-Item -ItemType File -Path $testFile2 -Force | Out-Null
     New-Item -ItemType File -Path $part1 -Force | Out-Null
     New-Item -ItemType File -Path $part2 -Force | Out-Null
+    
+    New-Item -ItemType File -Path $part1 -Force | Out-Null
+    Set-Content -Path $part1 -Value $template
+    
+    New-Item -ItemType File -Path $part2 -Force | Out-Null
+    Set-Content -Path $part2 -Value $template
+
     Write-Output "Created files"
 
     Write-Output "Taking you to $outputDirectory"
