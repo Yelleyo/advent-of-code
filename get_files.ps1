@@ -7,14 +7,14 @@ param (
 $session = "53616c7465645f5f05403d719a4f3a0ac27d084a6f8c4d1fabc7800011e8d8211d993d744e383ee3f2a0f46ce1ccc822aff9e31f258e410e1f00d56130201776"
 
 # Define the year
-$year = 2024
+$year = 2022
 
 # URL to fetch the input data
 $url = "https://adventofcode.com/$year/day/$Day/input"
 
 # Define the output directory and files
 $outputDirectory = "./$year/Day$Day"
-$outputFile = "$outputDirectory/input.txt"
+$outputFile = "$outputDirectory/input_file.txt"
 $testFile1 = "$outputDirectory/test1.txt"
 $testFile2 = "$outputDirectory/test2.txt"
 $part1 = "{0}/day{1}_part1.py" -f $outputDirectory, $Day
@@ -34,6 +34,9 @@ try {
     New-Item -ItemType File -Path $part1 -Force | Out-Null
     New-Item -ItemType File -Path $part2 -Force | Out-Null
     Write-Output "Created files"
+
+    Write-Output "Taking you to $outputDirectory"
+    Set-Location -Path $outputDirectory
 } catch {
     Write-Output "Failed to download and/or create data: $_"
     exit 1
