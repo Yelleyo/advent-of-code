@@ -1,6 +1,9 @@
 # open file and make a list of lines:
 with open('test1.txt', 'r') as file:
     lines = file.read().splitlines()
+#eventually split info into lists
+list1 = [int(line.split("   ")[0]) for line in lines]
+list2 = [int(line.split("   ")[1]) for line in lines]
 
 # find a pattern in the line and get the position i:
 import re
