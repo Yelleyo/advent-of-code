@@ -4,6 +4,7 @@ param (
 )
 
 # Define your session token in a session.ps1 file in the same folder as this script
+# $session = "thesession_id in your browser"
 # also don't forget to add session.ps1 to the .gitignore
 # Import the session token
 . ./session.ps1
