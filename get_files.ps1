@@ -3,11 +3,13 @@ param (
     [int]$Day
 )
 
-# Define your session token
-$session = "53616c7465645f5f05403d719a4f3a0ac27d084a6f8c4d1fabc7800011e8d8211d993d744e383ee3f2a0f46ce1ccc822aff9e31f258e410e1f00d56130201776"
+# Define your session token in a session.ps1 file in the same folder as this script
+# also don't forget to add session.ps1 to the .gitignore
+# Import the session token
+. ./session.ps1
 
 # Define the year
-$year = 2024
+$year = 2022
 
 # URL to fetch the input data
 $url = "https://adventofcode.com/$year/day/$Day/input"
