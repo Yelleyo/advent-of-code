@@ -9,7 +9,7 @@ param (
 . ./session.ps1
 
 # Define the year
-$year = 2022
+$year = 2024
 
 # URL to fetch the input data
 $url = "https://adventofcode.com/$year/day/$Day/input"
