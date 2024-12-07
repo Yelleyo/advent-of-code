@@ -24,3 +24,12 @@ second_element = line.split(":")[1]
 # loop and add to array if condition is met:
 line_array = []
 line_array = [ch for ch in line if ch.isdigit()]
+
+# check with line number and index
+for i in range(len(lines)):
+    for j in range(len(lines[i])):
+        pass
+
+# Zip through 2 lists
+for nb1, nb2 in zip(list1, list2):
+    pass
